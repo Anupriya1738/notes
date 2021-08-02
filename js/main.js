@@ -1,4 +1,4 @@
-console.log('hello');
+
 // here everytime we click on addnotes , whole local storage is reloaded with new modified object and same happens with notes area also
 // at first we want to show all the notes that are already added
 shownotes();
@@ -75,7 +75,7 @@ function deletenode(index) {
     console.log(`i am deleting ${index}`);
 
     let notes = localStorage.getItem('notes'); //key for notes is "notes"
-    let titles = localStorage.getItem('notetitle');
+    // let titles = localStorage.getItem('notetitle');
 
     if (notes == null) {
         noteobj = [];
@@ -136,8 +136,9 @@ search.addEventListener('input', function (e) {
     let searchvalue = search.value;
     let notecard = document.getElementsByClassName('mycard');
     Array.from(notecard).forEach(function (element) {
+         //    console.log(element.getElementsByTagName('p'));
         let cardtext = element.getElementsByTagName('p')[0].innerText;
-        //    console.log(element.getElementsByTagName('h5')[0].innerText);
+        //    console.log(element.getElementsByTagName('h5'));
         let cardtitle = element.getElementsByTagName('h5')[0].innerText;
         if (cardtext.includes(searchvalue) || cardtitle.includes(searchvalue)) {
             element.style.display = "block";
@@ -147,59 +148,3 @@ search.addEventListener('input', function (e) {
         }
     });
 });
-// function searchnote(e) {
-//     e.preventDefault();
-//     console.log('search');
-//     let searchvalue = search.value;
-//     let notecard = document.getElementsByClassName('mycard');
-//     Array.from(notecard).forEach(function(element){
-//        let cardtext = element.getElementsByTagName('p')[0].innerText 
-//        if(cardtext.includes(searchvalue)){
-//            element.style.display = "block";
-//        }
-//        else{
-//         element.style.display = "none";
-//        }
-//     });
-//     return false;
-// }
-// function searchnote(e) {
-//     e.preventDefault();
-//     console.log("Oh boi");
-// }
-class A{
-    constructor(name){
-        this.name=name;
-        // console.log(name);
-    }
-    slogan(){
-        this.name.forEach(element=>{
-            console.log(element)
-        });
-    }
-    static add(a,b){
-        return a+b;
-    }
-}
-// class B extends A{
-//     constructor(name){
-       
-//         console.log("b");
-//         super(name);
-//     }
-//     static mul(a,b){
-//         return a*b;
-//     }
-// }
-let obj = new A(['a','b']);
-// let obj2 = new B("h");
-
-console.log(obj);
-// console.log(obj2);
-// console.log(A);
-// console.log(A.add(2,3));
-// console.log(obj.slogan());
-// console.log(B);
-// console.log(B.add(4,5));
-// console.log(B.mul(4,5));
-// console.log(obj2.slogan());
